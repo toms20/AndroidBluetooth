@@ -1,0 +1,23 @@
+####################################
+# Syntax Coloring Map
+####################################
+
+####################################
+# Datatypes
+####################################
+
+AndroidBluetooth	KEYWORD1
+
+####################################
+# Methods and Functions
+####################################
+registerConnectCallback	KEYWORD2
+registerDisconnectCallback	KEYWORD2
+registerDataCallback	KEYWORD2
+registerPinCallback	KEYWORD2
+init	KEYWORD2
+listen	KEYWORD2
+send	KEYWORD2
+print	KEYWORD2
+write	KEYWORD2
+isConnected	KEYWORD2
