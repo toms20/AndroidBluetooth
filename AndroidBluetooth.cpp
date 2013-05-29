@@ -69,6 +69,7 @@ void AndroidBluetooth::listen() {
                 //Send data to callback
                 if(onPin) onPin(type, pin, isHigh);
                 if(type == 0) {
+                    Serial.print("Requested:");
                     Serial.print("Digital Pin ");
                     Serial.print(pin);
                     Serial.print(" to ");

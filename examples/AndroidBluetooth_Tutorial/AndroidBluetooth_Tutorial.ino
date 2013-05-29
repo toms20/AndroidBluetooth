@@ -11,12 +11,14 @@
 AndroidBluetooth androidBT(rxPin, txPin);
 
 void setup() {
+  //Starts our serial monitor at a baud rate of 38400 
   Serial.begin(38400);
+  
   //Register our callbacks (all are optional)
   androidBT.registerConnectCallback(&onConnect);  //Get notified when a bluetooth connection is established
   androidBT.registerDisconnectCallback(&onDisconnect);  //Get notified when a bluetooth connection gets terminated
   androidBT.registerDataCallback(&onData);  //Get any incomming data from the connected bluetooth device
-  androidBT.registerPinCallback(&onPin);  //Get pin state request from the connected bluetooth device
+  androidBT.registerPinCallback(&onPin);  //Get pin state requests from the connected bluetooth device
   
   //Call this 'init()' function to set up the SeeedStudios bluetooth shield
   androidBT.init();
@@ -57,11 +59,11 @@ void onData(String msg) {
 // pin = 0, 1, ... 12, 13 
 // state = 0 (LOW) || state = 1 (HIGH)
 void onPin(int type, int pin, int state) {
-  Serial.print("onPin Called:");Serial.print(type);Serial.print(":");Serial.print(pin);Serial.print(":");Serial.println(state);
   
   //Check to see if the pin request is for our digital pin 13
   if(type == 0 && pin == 13) {
     //It is! so lets change the state to the received value...
     digitalWrite(pin, state);
   }
+  
 }
